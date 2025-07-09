@@ -39,7 +39,7 @@ create or replace table cust_info as select * from table(gen_cust_info(1000)) or
 create or replace function gen_prod_inv(num_records number)
 returns table (pid number(10), pname varchar(100), stock number(10,2), stockdate date)
 language python
-runtime_version=3.8
+runtime_version=3.9
 handler='ProdTab'
 packages = ('Faker')
 as $$
@@ -75,7 +75,7 @@ create or replace table prod_stock_inv as select * from table(gen_prod_inv(100))
 create or replace function gen_cust_purchase(num_records number,ndays number)
 returns table (custid number(10), purchase variant)
 language python
-runtime_version=3.8
+runtime_version=3.9
 handler='genCustPurchase'
 packages = ('Faker')
 as $$
